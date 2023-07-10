@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <title>Tetris</title>
+  </head>
+  <body>
+    <div class="app">
+      <div class="left-col">
+        <canvas id="nextPiece" width="100px" height="100px"></canvas>
+      </div>
+        <div class="mid-col">
+          <canvas id="tetris" width="400px" height="800px"></canvas>
+        </div>
+        <div class="right-col">
+          <div class="score-wrapper">
+            <h3>Score</h3>
+            <div id="score">0</div>
+          </div>
+          <div class="lines-wrapper">
+            <h3>Lines Cleared</h3>
+            <div id="lines">0</div>
+          </div>
+          <div class="level-wrapper">
+            <h3>Level</h3>
+            <div id="level">1</div>
+          </div>
+        
+        </div>
+    </div>
+
+    <script src="js/controls.js"></script>
+    <script src="js/matrix.js"></script>
+    <script src="js/tetrominoes.js"></script>
+    <script src="js/script.js"></script>
+  </body>
+</html>
