@@ -17,7 +17,8 @@ const arena = createMatrix(10,20)
 const player = {
     pos: {x:0, y:0},
     matrix: null,
-    score: 0
+    score: 0,
+    level: 1
 }
 
 function collide(arena,player) {
@@ -44,6 +45,11 @@ function merge (arena,player) {
     })
 }
 
+let dropInterval = 1000;
+let dropCounter = 0;
+let lastTime = 0
+
+let linesCleared = 0; // Initialize lines cleared counter
 function arenaSweep () {
     let rowCount = 1
     outer: for (let y = arena.length -1; y > 0; --y) {
@@ -59,13 +65,24 @@ function arenaSweep () {
         ++y
         player.score += rowCount* 100;
         rowCount *= 2;
+        linesCleared += 1; // Increase lines cleared counter
+
+        if (linesCleared % 1 === 0) {
+            player.level++;
+            dropInterval -= 100;
+            if (dropInterval < 300) {
+                dropInterval = 300;
+            }
+        }
+
+
+        updateLinesCleared();
+        updateLevel();
     }
 }
 
  
-let dropInterval = 1000;
-let dropCounter = 0;
-let lastTime = 0
+
 
 function update(time = 0) {
     const deltaTime = time - lastTime;
@@ -84,8 +101,16 @@ function updateScore () {
     document.getElementById('score').innerText = player.score
 }
 
+function updateLinesCleared() {
+    document.getElementById('lines').innerText = linesCleared;
+}
+function updateLevel() {
+    document.getElementById('level').innerText = player.level;
+}
+
 
 playerReset();
 drawNextPiece();
 updateScore();
+updateLinesCleared()
 update();

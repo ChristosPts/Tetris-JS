@@ -67,10 +67,10 @@ function playerReset() {
     if (collide(arena, player)) {
         arena.forEach(row => row.fill(0));
         player.score = 0;
+        linesCleared = 0; // Reset lines cleared counter
         updateScore();
-
-        player.lines += rowCount;
-        document.getElementById("lines").innerText = player.lines;
+        updateLinesCleared();
+        dropInterval = 1000
     }
     
 }
