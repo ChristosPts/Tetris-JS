@@ -65,12 +65,22 @@ function playerReset() {
     player.nextMatrix = createPiece(pieces[pieces.length * Math.random() | 0]);
 
     if (collide(arena, player)) {
-        arena.forEach(row => row.fill(0));
-        player.score = 0;
-        linesCleared = 0; // Reset lines cleared counter
-        updateScore();
-        updateLinesCleared();
-        dropInterval = 1000
+        updateScore(); // Update the score before resetting it to 0
+        // set timeout alows to show final score in end game screen
+        setTimeout(() => {
+            arena.forEach(row => row.fill(0));
+            player.score = 0;
+            linesCleared = 0; // Reset lines cleared counter
+            updateLinesCleared();
+            dropInterval = 1000;
+            endScreen.style.display = "block";
+
+            endScreen.style.display = "flex";
+
+            gamePaused = true;
+            return;
+        }, 100); // Add a delay of 100 milliseconds before resetting the game
     }
     
+ 
 }

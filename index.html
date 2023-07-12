@@ -9,6 +9,19 @@
   </head>
   <body>
     <div class="app">
+
+      <div id="startScreen" class="screen">
+        <h2>Welcome to Tetris!</h2>
+        <button id="playButton">Play</button>
+      </div>
+      
+      <div id="endScreen" class="screen">
+        <h2>Game Over</h2>
+        <p>Final Score: <div class="score">0</div></p>
+        <button id="restartButton">Restart</button>
+      </div>
+      
+      
       <div class="left-col">
         <canvas id="nextPiece" width="100px" height="100px"></canvas>
       </div>
@@ -18,7 +31,7 @@
         <div class="right-col">
           <div class="score-wrapper">
             <h3>Score</h3>
-            <div id="score">0</div>
+            <div class="score">0</div>
           </div>
           <div class="lines-wrapper">
             <h3>Lines Cleared</h3>

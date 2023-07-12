@@ -24,7 +24,6 @@ function draw() {
             context.stroke();
         }
     }
-
     drawMatrix(arena, { x: 0, y: 0 });
     drawMatrix(player.matrix, player.pos);
 }
@@ -40,7 +39,6 @@ function drawMatrix(matrix, offset) {
                 const squareX = x + offset.x;
                 const squareY = y + offset.y;
  
-
                 // Draw colored square
                 context.fillStyle = color;
                 context.fillRect(squareX * gridSize + 1, squareY * gridSize + 1, squareSize, squareSize);

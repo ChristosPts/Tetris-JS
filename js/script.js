@@ -67,38 +67,63 @@ function arenaSweep () {
         rowCount *= 2;
         linesCleared += 1; // Increase lines cleared counter
 
-        if (linesCleared % 1 === 0) {
+        if (linesCleared % 8 === 0) {
             player.level++;
             dropInterval -= 100;
-            if (dropInterval < 300) {
-                dropInterval = 300;
+            if (dropInterval < 200) {
+                dropInterval = 200;
             }
         }
-
-
         updateLinesCleared();
         updateLevel();
     }
-}
+}let gamePaused = false;
 
- 
-
-
-function update(time = 0) {
+function update(time = 0.05) {
     const deltaTime = time - lastTime;
     lastTime = time;
     dropCounter += deltaTime;
     if (dropCounter > dropInterval) {
         playerDrop();
     }
+    if (gamePaused) {
+        return; // Exit the function if the game is paused
+      }
     draw();
     drawNextPiece();
     requestAnimationFrame(update);
 }
 
+// Add the following code at the end of your existing script.js file
+const startScreen = document.getElementById("startScreen");
+const playButton = document.getElementById("playButton");
+playButton.addEventListener("click", () => {
+  startScreen.style.display = "none";
+  resetGame();
+});
 
-function updateScore () {
-    document.getElementById('score').innerText = player.score
+const endScreen = document.getElementById("endScreen");
+const restartButton = document.getElementById("restartButton");
+restartButton.addEventListener("click", () => {
+    endScreen.style.display = "none";
+    gamePaused = false; // Resume the game
+    update(); // Start the game loop
+    resetGame();
+  });
+ 
+  function resetGame() {
+    playerReset();
+    drawNextPiece();
+    updateScore();
+    updateLinesCleared()
+    update();
+  }
+
+  function updateScore () {
+    const scoreElements = document.getElementsByClassName('score');
+    for (let i = 0; i < scoreElements.length; i++) {
+      scoreElements[i].innerText = player.score;
+    }
 }
 
 function updateLinesCleared() {
@@ -107,10 +132,3 @@ function updateLinesCleared() {
 function updateLevel() {
     document.getElementById('level').innerText = player.level;
 }
-
-
-playerReset();
-drawNextPiece();
-updateScore();
-updateLinesCleared()
-update();
