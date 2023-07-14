@@ -1,3 +1,5 @@
+// controls.js
+
 function playerMove(dir) {
     player.pos.x += dir;
     if (collide(arena,player)) {

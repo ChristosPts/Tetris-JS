@@ -1,3 +1,5 @@
+// tetrominoes.js
+
 const colors = [
     null,
     '#fad35f',
@@ -60,27 +62,23 @@ function playerReset() {
     player.matrix = player.nextMatrix || createPiece(pieces[pieces.length * Math.random() | 0]);
     player.pos.y = 0;
     player.pos.x = (arena[0].length / 2 | 0) - (player.matrix[0].length / 2 | 0);
-
+  
     // Generate the upcoming piece
     player.nextMatrix = createPiece(pieces[pieces.length * Math.random() | 0]);
-
+  
     if (collide(arena, player)) {
-        updateScore(); // Update the score before resetting it to 0
-        // set timeout alows to show final score in end game screen
-        setTimeout(() => {
-            arena.forEach(row => row.fill(0));
-            player.score = 0;
-            linesCleared = 0; // Reset lines cleared counter
-            updateLinesCleared();
-            dropInterval = 1000;
-            endScreen.style.display = "block";
-
-            endScreen.style.display = "flex";
-
-            gamePaused = true;
-            return;
-        }, 100); // Add a delay of 100 milliseconds before resetting the game
+      gameEnded = true;
+      setTimeout(() => {
+        arena.forEach(row => row.fill(0));
+        player.score = 0;
+        linesCleared = 0; // Reset lines cleared counter
+        updateLinesCleared();
+        dropInterval = 1000;
+        endScreen.style.display = "flex";
+        gamePaused = true;
+        gameEnded = false;
+        return;
+      }, 100); // Add a delay of 100 milliseconds before resetting the game
     }
-    
- 
-}
+  }
+  

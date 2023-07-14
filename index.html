@@ -10,44 +10,67 @@
   <body>
     <div class="app">
 
-      <div id="startScreen" class="screen">
-        <h2>Welcome to Tetris!</h2>
-        <button id="playButton">Play</button>
-      </div>
-      
-      <div id="endScreen" class="screen">
-        <h2>Game Over</h2>
-        <p>Final Score: <div class="score">0</div></p>
-        <button id="restartButton">Restart</button>
-      </div>
-      
-      
-      <div class="left-col">
+      <div class="game-wrapper">
+        <div class="left-col">
         <canvas id="nextPiece" width="100px" height="100px"></canvas>
-      </div>
+        </div>
         <div class="mid-col">
           <canvas id="tetris" width="400px" height="800px"></canvas>
         </div>
         <div class="right-col">
-          <div class="score-wrapper">
-            <h3>Score</h3>
-            <div class="score">0</div>
+          <div class="stats-wrapper">
+            <div class="score-wrapper stats">
+              <h3>Score</h3>
+              <div class="score">0</div>
+            </div>
+            <div class="lines-wrapper stats">
+              <h3>Lines Cleared</h3>
+              <div id="lines">0</div>
+            </div>
+            <div class="level-wrapper stats">
+              <h3>Level</h3>
+              <div id="level">1</div>
+            </div>
           </div>
-          <div class="lines-wrapper">
-            <h3>Lines Cleared</h3>
-            <div id="lines">0</div>
-          </div>
-          <div class="level-wrapper">
-            <h3>Level</h3>
-            <div id="level">1</div>
-          </div>
-        
+            <button id="pauseButton">Pause</button>  
         </div>
+      </div>
     </div>
 
+
+    <div id="startScreen">
+      <div class="menu">
+        <h2>Welcome to Tetris!</h2>
+        <div class="score-board">
+          <h3>Score Board</h3>
+          <ul class="scoreBoard"></ul>
+        </div>
+        <button id="playButton">Play</button>
+      </div>
+    </div>
+  
+    <div id="endScreen">
+      <div class="menu">
+        <h2>Game Over</h2>
+        <p>Final Score: <div class="score">0</div></p>
+        <div class="score-board">
+          <h3>Score Board</h3>
+          <ul class="scoreBoard"></ul>
+        </div>
+        <button id="restartButton">Restart</button>
+      </div>
+    </div>
+
+    <div class="pause-menu">
+      <button id="resumeButton">Resume</button>
+    </div>
+
+    <script src="js/pause.js"></script> 
     <script src="js/controls.js"></script>
     <script src="js/matrix.js"></script>
     <script src="js/tetrominoes.js"></script>
+    <script src="js/scores.js"></script>
     <script src="js/script.js"></script>
+
   </body>
 </html>

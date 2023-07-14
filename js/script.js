@@ -1,3 +1,4 @@
+// script.js
 const canvas = document.getElementById("tetris")
 const context = canvas.getContext('2d');
 
@@ -10,7 +11,7 @@ const arenaHeight = 20; // Number of rows in the arena
 
 // Calculate the scale factor based on the canvas size and the arena dimensions
 const scale = Math.min(canvas.width / arenaWidth, canvas.height / arenaHeight);
-
+ 
 context.scale(scale, scale);
  
 const arena = createMatrix(10,20)
@@ -77,7 +78,8 @@ function arenaSweep () {
         updateLinesCleared();
         updateLevel();
     }
-}let gamePaused = false;
+    
+}
 
 function update(time = 0.05) {
     const deltaTime = time - lastTime;
@@ -104,7 +106,7 @@ playButton.addEventListener("click", () => {
 
 const endScreen = document.getElementById("endScreen");
 const restartButton = document.getElementById("restartButton");
-restartButton.addEventListener("click", () => {
+    restartButton.addEventListener("click", () => {
     endScreen.style.display = "none";
     gamePaused = false; // Resume the game
     update(); // Start the game loop
@@ -119,12 +121,7 @@ restartButton.addEventListener("click", () => {
     update();
   }
 
-  function updateScore () {
-    const scoreElements = document.getElementsByClassName('score');
-    for (let i = 0; i < scoreElements.length; i++) {
-      scoreElements[i].innerText = player.score;
-    }
-}
+ 
 
 function updateLinesCleared() {
     document.getElementById('lines').innerText = linesCleared;
