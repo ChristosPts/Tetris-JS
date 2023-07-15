@@ -21,7 +21,7 @@ const player = {
     score: 0,
     level: 1
 }
-
+ 
 function collide(arena,player) {
     const [m, o] = [player.matrix, player.pos]
     for (let y = 0; y < m.length; ++y){
@@ -80,6 +80,31 @@ function arenaSweep () {
     }
     
 }
+
+function playerReset() {
+    const pieces = "ILJOTSZ";
+    player.matrix = player.nextMatrix || createPiece(pieces[pieces.length * Math.random() | 0]);
+    player.pos.y = 0;
+    player.pos.x = (arena[0].length / 2 | 0) - (player.matrix[0].length / 2 | 0);
+  
+    // Generate the upcoming piece
+    player.nextMatrix = createPiece(pieces[pieces.length * Math.random() | 0]);
+  
+    if (collide(arena, player)) {
+      gameEnded = true;
+      setTimeout(() => {
+        arena.forEach(row => row.fill(0));
+        player.score = 0;
+        linesCleared = 0; // Reset lines cleared counter
+        updateLinesCleared();
+        dropInterval = 1000;
+        endScreen.style.display = "flex";
+        gamePaused = true;
+        gameEnded = false;
+        return;
+      }, 100); // Add a delay of 100 milliseconds before resetting the game
+    }
+  }
 
 function update(time = 0.05) {
     const deltaTime = time - lastTime;
