@@ -1,14 +1,16 @@
-@import url('https://fonts.googleapis.com/css2?family=Tektur&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Tektur&display=swap');
 *, *::before, *::after{
   box-sizing: border-box;
   padding: 0;
   margin: 0; 
-  font-family: 'Tektur', cursive;
 }
 
 body {
  position: relative;
- background-color: gray;
+  background-image: url("subtle-prism.svg");
+  background-position: center;
+  background-size: cover;
+  font-family: 'Tektur', cursive;
 }  
 
 .app {
@@ -17,28 +19,39 @@ body {
   align-items: center;
   justify-content: center;
   color: white;
+  overflow-x: hidden;
 }
 
 .game-wrapper {
   display: flex;
   padding: 8px 48px;
-  background-color: #d66565;
   position: relative; /* Add this */
-  
- 
 }
 
  /*- left-col -*/
 .left-col, .right-col  {
   display: flex;
   flex-direction: column;
-  width: 140px;
+  width: 160px;
 }
 
 #nextPiece {
-  width: 140px; /* Adjust the width as desired */
-  height: 140px; /* Adjust the height as desired */
-  padding: 4px;
+  width: 120px; /* Adjust the width as desired */
+  height: 120px; /* Adjust the height as desired */
+  padding: 8px;
+}
+
+.next-wrapper {
+  padding: 8px 16px;
+   width: 150px;
+}
+.left-col-info, .instructions {
+  margin-top: auto;
+}
+
+ 
+.left-col-info h4 {
+  font-family: 'Press Start 2P', cursive;
 }
 
  /*- Middle/Canvas -*/
@@ -46,8 +59,8 @@ body {
     margin: auto 32px;
  }
 
- canvas#tetris,
- #nextPiece,
+canvas#tetris,
+.next-wrapper,
 .stats,.menu  {
   background-color: #222;
   border-radius: 12px;
@@ -55,52 +68,40 @@ body {
   box-shadow: 0px 0px 6px 4px rgba(32, 32, 32, 0.555)  ;
 }
 
- 
+.menu {
+  padding: 16px 24px;
+  width: 280px;
+}
 
 /*- right-col -*/
- 
-
 .stats {
   padding: 8px 16px;
+  text-align: right;
+  width: 150px;
+}
 
+.stats h3, .next-wrapper h3 {
+  text-align: center;
+  margin-bottom: 6px;
+  padding-bottom: 6px;
+  border-bottom: 2px solid white;
 }
 
 .score-wrapper,
 .lines-wrapper {
   margin-bottom: 24px ;
-  width: 140px;
+  width: 150px;
 }
 
-#pauseButton {
-  padding: 8px;
-  
+#pauseButton{
   margin-top: auto; /* Add this */
 }
 
 
 /*- End/Start Screens -*/
 #startScreen,
- #endScreen {
-  display: flex;
-  
-  align-items: center;
-  justify-content: center;
-  position: absolute;
-  top: 0;
- 
-   
-  width: 100%;
-  height: 100%;
-  color: #fff;
-  font-family: Arial, sans-serif;
-  z-index: 999;
-  background-color: rgba(32, 32, 32, 0.199);
-  backdrop-filter: blur(2px);
-}
- 
-
-#startScreen,
-#endScreen {
+#endScreen,
+.pause-menu   {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -108,10 +109,18 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  color: #fff;
+  z-index: 999;
+  background-color: rgba(32, 32, 32, 0.199);
+  backdrop-filter: blur(2px);
 }
-  
+
 #startScreen button, 
-#endScreen button {
+#endScreen button,
+#pauseButton,
+#resumeButton {
   padding: 12px 24px;
   font-size: 18px;
   background-color: #fff;
@@ -121,18 +130,10 @@ body {
   cursor: pointer;
 }
 
+ 
 #startScreen button:hover, 
 #endScreen button:hover {
   background-color: #f5f5f5;
-}
-
-.menu {
- 
-  padding: 16px 24px;
-  border-radius: 12px;
-  
-  box-shadow: 0px 0px 6px 4px rgba(32, 32, 32, 0.555)  ;
-  width: 280px;
 }
 
 #endScreen {
@@ -159,18 +160,21 @@ body {
 }
 
 /*- Pause Menu -*/
-.pause-menu {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+.pause-menu   {
   display: none;
 }
 
-.paused .pause-menu {
-  display: block;
+.pause-menu .menu{   
+  position: absolute; /* Use position: fixed instead of position: absolute */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
+.instructions h5,
+.instructions h2 {
+  margin-top: 8px;
+}
 
 @media (min-width: 601px) {
   canvas#tetris {

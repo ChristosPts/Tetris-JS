@@ -65,7 +65,7 @@ function drawNextPiece() {
     nextPieceContext.clearRect(0, 0, nextPieceCanvas.width, nextPieceCanvas.height);
 
     if (player.nextMatrix) {
-        const gridSize = 24; // Adjust the size of the grid squares in the nextPieceCanvas
+        const gridSize = 34; // Adjust the size of the grid squares in the nextPieceCanvas
         const squareSize = gridSize - 2; // Adjust the size of the colored square inside the grid square
 
         const nextPieceWidth = player.nextMatrix[0].length * gridSize;

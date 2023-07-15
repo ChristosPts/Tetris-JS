@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <title>Tetris</title>
   </head>
   <body>
@@ -12,7 +13,18 @@
 
       <div class="game-wrapper">
         <div class="left-col">
-        <canvas id="nextPiece" width="100px" height="100px"></canvas>
+           <div class="next-wrapper">
+            <h3>Next-Piece</h3>
+            <canvas id="nextPiece" width="130px" height="130px"></canvas>
+           </div>
+
+
+           <div class="left-col-info">
+            <h4>Tetris-JS</h4>
+            <p>No rights reserved</p>
+           </div>
+            
+
         </div>
         <div class="mid-col">
           <canvas id="tetris" width="400px" height="800px"></canvas>
@@ -24,7 +36,7 @@
               <div class="score">0</div>
             </div>
             <div class="lines-wrapper stats">
-              <h3>Lines Cleared</h3>
+              <h3>Lines</h3>
               <div id="lines">0</div>
             </div>
             <div class="level-wrapper stats">
@@ -32,7 +44,7 @@
               <div id="level">1</div>
             </div>
           </div>
-            <button id="pauseButton">Pause</button>  
+            <button id="pauseButton">Pause <i class="bi bi-pause-btn"></i></i></button>  
         </div>
       </div>
     </div>
@@ -45,7 +57,7 @@
           <h3>Score Board</h3>
           <ul class="scoreBoard"></ul>
         </div>
-        <button id="playButton">Play</button>
+        <button id="playButton">Play <i class="bi bi-joystick"></i></button>
       </div>
     </div>
   
@@ -57,12 +69,23 @@
           <h3>Score Board</h3>
           <ul class="scoreBoard"></ul>
         </div>
-        <button id="restartButton">Restart</button>
+        <button id="restartButton">Restart <i class="bi bi-arrow-counterclockwise"></i></button>
       </div>
     </div>
 
     <div class="pause-menu">
-      <button id="resumeButton">Resume</button>
+      <div class="menu">
+        <button id="resumeButton">Resume <i class="bi bi-play-btn"></i></i></button>
+        
+        <div class="instructions">
+          <h2>Instructions</h2>
+          <h6>Prevent the blocks from stacking up to the top of the screen, by clearing as many lines as possible</h6>
+          <h5>Up Arrow - Rotate</h5>
+          <h5>Left Arrow - Move Left</h5>
+          <h5>Right Arrow - Move Right</h5>
+          <h5>Down Arrow - Soft Drop</h5>
+        </div>
+      </div>
     </div>
 
     <script src="js/pause.js"></script> 
