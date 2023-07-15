@@ -61,7 +61,7 @@ body {
 
 canvas#tetris,
 .next-wrapper,
-.stats,.menu  {
+.stats,.menu, .score-board   {
   background-color: #222;
   border-radius: 12px;
   border: 4px solid #FFF;
@@ -72,6 +72,12 @@ canvas#tetris,
   padding: 16px 24px;
   width: 280px;
 }
+
+.menu h2, .menu p, .menu h3  {
+  margin-bottom: 8px;
+  text-align: center;
+}
+
 
 /*- right-col -*/
 .stats {
@@ -93,9 +99,7 @@ canvas#tetris,
   width: 150px;
 }
 
-#pauseButton{
-  margin-top: auto; /* Add this */
-}
+
 
 
 /*- End/Start Screens -*/
@@ -115,6 +119,7 @@ canvas#tetris,
   z-index: 999;
   background-color: rgba(32, 32, 32, 0.199);
   backdrop-filter: blur(2px);
+  
 }
 
 #startScreen button, 
@@ -128,21 +133,28 @@ canvas#tetris,
   border: none;
   border-radius: 12px;
   cursor: pointer;
+  background-color: #6fcb9f;
+  color: white;
 }
 
+#pauseButton{
+  margin-top: auto; /* Add this */
+  background-color: #d66565;
  
-#startScreen button:hover, 
-#endScreen button:hover {
-  background-color: #f5f5f5;
 }
+
+
+ 
 
 #endScreen {
   display: none;
 }
 
 .score-board {
-  margin: 16px auto; 
-  padding: 4px;
+  margin: 24px auto; 
+  padding: 8px 12px;
+  background-color: #333;
+ 
 }
 
 .score-board h3 {
@@ -153,9 +165,24 @@ canvas#tetris,
 .score-board ul {
   list-style-type: none;
   padding: 0;
+  text-align: right;
 }
 
 .score-board li {
+  margin-bottom: 5px;
+  padding: 4px 8px;
+}
+
+.score-board li:nth-child(1),
+.score-board li:nth-child(3),
+.score-board li:nth-child(5)  {
+  background-color: #555;
+  margin-bottom: 5px;
+}
+.score-board li:nth-child(2),
+.score-board li:nth-child(4),
+.score-board li:nth-child(5)  {
+  background-color: #777;
   margin-bottom: 5px;
 }
 
@@ -170,6 +197,18 @@ canvas#tetris,
   left: 50%;
   transform: translate(-50%, -50%);
 }
+
+ 
+.menu button {
+  display: block;
+  margin: 0 auto; /* Add this */
+  transition: .2s ease all;
+}
+
+.menu button:hover {
+  -webkit-filter: brightness(90%);
+}
+
 
 .instructions h5,
 .instructions h2 {
