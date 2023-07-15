@@ -45,6 +45,7 @@ function drawMatrix(matrix, offset) {
                 context.fillRect(squareX * gridSize + 1, squareY * gridSize + 1, squareSize, squareSize);
                 
                 // Add shadow
+                
                 context.shadowColor = 'rgba(15, 15, 15, 1)';
                 context.shadowBlur = 2;
                 context.shadowOffsetX = 0;
@@ -52,8 +53,8 @@ function drawMatrix(matrix, offset) {
                 context.fillRect(squareX * gridSize + 1, squareY * gridSize + 1, squareSize, squareSize);
 
                 // Reset shadow properties
-                context.shadowColor = 'rgba(100, 100, 100, 1)';
-                context.shadowBlur = 1;
+                context.shadowColor = 'transparent';
+                context.shadowBlur = 0;
                 context.shadowOffsetX = 0;
                 context.shadowOffsetY = 0;
             }

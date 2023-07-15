@@ -7,7 +7,7 @@
 
 body {
  position: relative;
-  background-image: url("subtle-prism.svg");
+  background-image: url("rose-petals.svg");
   background-position: center;
   background-size: cover;
   font-family: 'Tektur', cursive;
@@ -25,40 +25,34 @@ body {
 .game-wrapper {
   display: flex;
   padding: 8px 48px;
-  position: relative; /* Add this */
+  position: relative; 
 }
 
- /*- left-col -*/
-.left-col, .right-col  {
+.left-col, 
+.right-col  {
   display: flex;
   flex-direction: column;
   width: 160px;
 }
 
 #nextPiece {
-  width: 120px; /* Adjust the width as desired */
-  height: 120px; /* Adjust the height as desired */
-  padding: 8px;
+  width: 120px; 
+  height: 120px; 
+  padding: 4px;
 }
 
 .next-wrapper {
   padding: 8px 16px;
-   width: 150px;
-}
-.left-col-info, .instructions {
-  margin-top: auto;
+   width: 160px;
 }
 
- 
+.left-col-info{ margin-top: auto; color: #222;}
 .left-col-info h4 {
   font-family: 'Press Start 2P', cursive;
 }
 
- /*- Middle/Canvas -*/
- .mid-col {
-    margin: auto 32px;
- }
-
+.mid-col { margin: auto 32px; }
+    
 canvas#tetris,
 .next-wrapper,
 .stats,.menu, .score-board   {
@@ -73,17 +67,17 @@ canvas#tetris,
   width: 280px;
 }
 
-.menu h2, .menu p, .menu h3  {
+.menu h2, 
+.menu p, 
+.menu h3  {
   margin-bottom: 8px;
   text-align: center;
 }
-
-
-/*- right-col -*/
+ 
 .stats {
   padding: 8px 16px;
   text-align: right;
-  width: 150px;
+  width: 160px;
 }
 
 .stats h3, .next-wrapper h3 {
@@ -96,13 +90,9 @@ canvas#tetris,
 .score-wrapper,
 .lines-wrapper {
   margin-bottom: 24px ;
-  width: 150px;
+  width: 160px;
 }
 
-
-
-
-/*- End/Start Screens -*/
 #startScreen,
 #endScreen,
 .pause-menu   {
@@ -119,7 +109,6 @@ canvas#tetris,
   z-index: 999;
   background-color: rgba(32, 32, 32, 0.199);
   backdrop-filter: blur(2px);
-  
 }
 
 #startScreen button, 
@@ -140,22 +129,14 @@ canvas#tetris,
 #pauseButton{
   margin-top: auto; /* Add this */
   background-color: #e082b4;
-  transition: .2s ease-in all;
- 
+  transition: .1s  ease-in-out all;
 }
 
-
- 
-
-#endScreen {
-  display: none;
-}
-
+#endScreen { display: none; }
 .score-board {
   margin: 24px auto; 
   padding: 8px 12px;
   background-color: #333;
- 
 }
 
 .score-board h3 {
@@ -181,19 +162,15 @@ canvas#tetris,
   margin-bottom: 5px;
 }
 .score-board li:nth-child(2),
-.score-board li:nth-child(4),
-.score-board li:nth-child(5)  {
+.score-board li:nth-child(4) {
   background-color: #777;
   margin-bottom: 5px;
 }
 
-/*- Pause Menu -*/
-.pause-menu   {
-  display: none;
-}
-
+.pause-menu{ display: none; }
+ 
 .pause-menu .menu{   
-  position: absolute; /* Use position: fixed instead of position: absolute */
+  position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -203,36 +180,25 @@ canvas#tetris,
 .menu button {
   display: block;
   margin: 0 auto; /* Add this */
-  transition: .2s ease-in all;
+  transition: .1s ease-in-out all;
 }
 
-.menu button:hover,#pauseButton:hover {
+.menu button:hover,
+#pauseButton:hover {
   -webkit-filter: brightness(90%);
- 
 }
 
-hr{
-  margin: 16px;
-}
-
+hr{ margin: 16px; }
+.instructions { text-align: center; }
 .instructions h5,
 .instructions h6 {
   margin-top: 10px;
 }
-.instructions h2 {
-  margin-top: 20px;
-}
-
+ 
 @media (min-width: 601px) {
   canvas#tetris {
     width: 340px;
     height: 690px;
   }
 }
-@media (max-width: 600px) {
-  canvas#tetris {
-    width: 350px;
-    height: calc(700px * 1.5);
-  }
-}
-
+ 

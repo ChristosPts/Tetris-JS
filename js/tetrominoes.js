@@ -1,5 +1,4 @@
 // tetrominoes.js
-
 const colors = [
     null,
     '#fad35f',
