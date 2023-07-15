@@ -17,14 +17,10 @@
             <h3>Next-Piece</h3>
             <canvas id="nextPiece" width="130px" height="130px"></canvas>
            </div>
-
-
            <div class="left-col-info">
             <h4>Tetris-JS</h4>
             <p>No rights reserved</p>
            </div>
-            
-
         </div>
         <div class="mid-col">
           <canvas id="tetris" width="400px" height="800px"></canvas>
@@ -53,10 +49,11 @@
     <div id="startScreen">
       <div class="menu">
         <h2>Welcome to Tetris!</h2>
+        <hr>
         <div class="score-board">
           <h3>Score Board</h3>
           <ul class="scoreBoard"></ul>
-        </div>
+        </div><hr>
         <button id="playButton">Play <i class="bi bi-joystick"></i></button>
       </div>
     </div>
@@ -65,10 +62,12 @@
       <div class="menu">
         <h2>Game Over</h2>
         <p>Final Score: <p class="score">0</p></p>
+        <hr>
         <div class="score-board">
           <h3>Score Board</h3>
           <ul class="scoreBoard"></ul>
         </div>
+        <hr>
         <button id="restartButton">Restart <i class="bi bi-arrow-counterclockwise"></i></button>
       </div>
     </div>
@@ -79,7 +78,9 @@
         
         <div class="instructions">
           <h2>Instructions</h2>
-          <h6>Prevent the blocks from stacking up to the top of the screen, by clearing as many lines as possible</h6>
+          <hr>
+          <p>Prevent the blocks from stacking up to the top of the screen, by clearing as many lines as possible</p>
+          <hr>
           <h5>Up Arrow - Rotate</h5>
           <h5>Left Arrow - Move Left</h5>
           <h5>Right Arrow - Move Right</h5>

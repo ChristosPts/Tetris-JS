@@ -68,7 +68,7 @@ function arenaSweep () {
         rowCount *= 2;
         linesCleared += 1; // Increase lines cleared counter
 
-        if (linesCleared % 8 === 0) {
+        if (linesCleared % 7 === 0) {
             player.level++;
             dropInterval -= 100;
             if (dropInterval < 200) {
