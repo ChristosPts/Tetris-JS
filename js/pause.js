@@ -1,5 +1,3 @@
-// pause.js
-
 let gamePaused = false;
 let animationId = null;
 

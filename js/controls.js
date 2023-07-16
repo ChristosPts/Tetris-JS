@@ -1,5 +1,3 @@
-// controls.js
-
 function playerMove(dir) {
     player.pos.x += dir;
     if (collide(arena,player)) {
@@ -38,7 +36,6 @@ function rotate(matrix, dir) {
     }
 }
 
-
 function playerRotate(dir) {
     const pos = player.pos.x
     let offset = 1
@@ -54,7 +51,6 @@ function playerRotate(dir) {
         }
     }
 }
-
 
 document.addEventListener('keydown', event => {
         if (event.key === "ArrowLeft") {

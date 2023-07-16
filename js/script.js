@@ -1,4 +1,3 @@
-// script.js
 const canvas = document.getElementById("tetris")
 const context = canvas.getContext('2d');
 
@@ -6,8 +5,8 @@ const nextPieceCanvas = document.getElementById("nextPiece");
 const nextPieceContext = nextPieceCanvas.getContext('2d');
 let nextPiece = null;
 
-const arenaWidth = 10; // Number of columns in the arena
-const arenaHeight = 20; // Number of rows in the arena
+const arenaWidth = 10;
+const arenaHeight = 20;
 
 // Calculate the scale factor based on the canvas size and the arena dimensions
 const scale = Math.min(canvas.width / arenaWidth, canvas.height / arenaHeight);
@@ -50,7 +49,7 @@ let dropInterval = 1000;
 let dropCounter = 0;
 let lastTime = 0
 
-let linesCleared = 0; // Initialize lines cleared counter
+let linesCleared = 0;
 function arenaSweep () {
     let rowCount = 1
     outer: for (let y = arena.length -1; y > 0; --y) {
@@ -102,7 +101,9 @@ function playerReset() {
         gamePaused = true;
         gameEnded = false;
         return;
-      }, 100); // Add a delay of 100 milliseconds before resetting the game
+      }, 10); 
+      // Add a delay of 100 milliseconds before resetting the game
+      // this way the final score can be shown before it resets
     }
   }
 
@@ -145,8 +146,6 @@ const restartButton = document.getElementById("restartButton");
     updateLinesCleared()
     update();
   }
-
- 
 
 function updateLinesCleared() {
     document.getElementById('lines').innerText = linesCleared;

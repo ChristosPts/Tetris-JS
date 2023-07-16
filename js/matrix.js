@@ -1,4 +1,3 @@
-// matrix.js
 function createMatrix(w,h) {
     const matrix = [];
     while (h--) {
@@ -7,7 +6,7 @@ function createMatrix(w,h) {
     return matrix;
 }
 
-// tetrominoes.js
+// tetrominoes 
 const colors = [
     null,
     '#fad35f',
@@ -19,52 +18,19 @@ const colors = [
     '#e082b4',
 ]
 
-function createPiece (type) {
-    if (type === "T") {
-        return [
-            [0,0,0],
-            [1,1,1],
-            [0,1,0],
-        ]
-    } else if (type === "O") {
-        return [
-            [2,2],
-            [2,2],
-        ]
-    } else if (type === "L") {
-        return [
-            [0,3,0],
-            [0,3,0],
-            [0,3,3],
-        ]
-    } else if (type === "J") {
-        return [
-            [0,4,0],
-            [0,4,0],
-            [4,4,0],
-        ]
-    } else if (type === "S") {
-        return [
-            [0,5,5],
-            [5,5,0],
-            [0,0,0],
-        ]
-    } else if (type === "Z") {
-        return [
-            [6,6,0],
-            [0,6,6],
-            [0,0,0],
-        ]
-    } else if (type === "I") {
-        return [
-            [0,7,0,0],
-            [0,7,0,0],
-            [0,7,0,0],
-            [0,7,0,0],
-        ]
-    }
-}
-
+function createPiece(type) {
+    const pieceConfig = {
+      "T": [[0, 0, 0], [1, 1, 1], [0, 1, 0]],
+      "O": [[2, 2], [2, 2]],
+      "L": [[0, 3, 0], [0, 3, 0], [0, 3, 3]],
+      "J": [[0, 4, 0], [0, 4, 0], [4, 4, 0]],
+      "S": [[0, 5, 5], [5, 5, 0], [0, 0, 0]],
+      "Z": [[6, 6, 0], [0, 6, 6], [0, 0, 0]],
+      "I": [[0, 7, 0, 0], [0, 7, 0, 0], [0, 7, 0, 0], [0, 7, 0, 0]]
+    };
+  
+    return pieceConfig[type];
+  }
 
 function draw() {
     // Clear the canvas
@@ -88,7 +54,6 @@ function draw() {
     drawMatrix(player.matrix, player.pos);
 }
 
-
 function drawMatrix(matrix, offset) {
     matrix.forEach((row, y) => {
         row.forEach((value, x) => {
@@ -103,19 +68,18 @@ function drawMatrix(matrix, offset) {
                 context.fillStyle = color;
                 context.fillRect(squareX * gridSize + 1, squareY * gridSize + 1, squareSize, squareSize);
                 
-                // Add shadow
-                
-                context.shadowColor = 'rgba(15, 15, 15, 1)';
-                context.shadowBlur = 2;
-                context.shadowOffsetX = 0;
-                context.shadowOffsetY = 0;
-                context.fillRect(squareX * gridSize + 1, squareY * gridSize + 1, squareSize, squareSize);
-
                 // Reset shadow properties
                 context.shadowColor = 'transparent';
                 context.shadowBlur = 0;
                 context.shadowOffsetX = 0;
                 context.shadowOffsetY = 0;
+
+                // Add shadow
+                context.shadowColor = 'rgba(15, 15, 15, 1)';
+                context.shadowBlur = 2;
+                context.shadowOffsetX = 0;
+                context.shadowOffsetY = 0;
+                context.fillRect(squareX * gridSize + 1, squareY * gridSize + 1, squareSize, squareSize);
             }
         });
     });
